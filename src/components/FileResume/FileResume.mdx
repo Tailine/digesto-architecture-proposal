@@ -1,0 +1,14 @@
+```typescript
+type Props = {
+  filename: string
+  size: number
+}
+
+export function FileResume({ filename, size }: Props) {
+  <div>
+    <MdAttachFile>
+    <p>{filename} <span>{size}(Mb)</span></p>
+  </div>
+}
+
+```

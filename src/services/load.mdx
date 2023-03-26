@@ -1,0 +1,23 @@
+```typescript
+import { Service } from "../ports/service";
+import { LoadDetails } from "../types/load";
+
+export class LoadService {
+  constructor(private service: Service) {}
+
+  async getDetails(id: string): Promise<ApiResponse<LoadDetails>> {
+    try {
+      const data = await this.service.get<LoadDetails>();
+      return {
+        data,
+        status: 'success'
+      }
+    } catch(err) {
+      return {
+        status: 'error'
+        errorMessage: err.message
+      }
+    }
+  }
+}
+```

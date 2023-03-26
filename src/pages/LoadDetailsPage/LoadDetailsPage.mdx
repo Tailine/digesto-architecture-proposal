@@ -1,0 +1,61 @@
+```typescript
+import { Load } from '../types/load'
+import { useLoadDetails } from '../../hooks/useLoadDetails'
+import { MdArrowBack } from 'react-icons/md'
+import { Card } from '../components/Card'
+
+type Props = {
+  title: string
+}
+
+export function LoadDetailsPage({ title }: Props) {
+
+  const { id } = useParams()
+  const { data: details } = useLoadDetails(id)
+  const [searchTerm, setSearchTerm] = useState('')
+
+  function handleChange(e) {
+    // debounce busca
+  }
+
+  const filterdFiles = searchTerm ? details.files.filter(file => file.filename.includes(searchTerm)) : details.files
+  const fileItems = <FileResume filename={file.filename} size={file.size} />
+
+  return <MainLayout title="Cargas">
+    <>
+      <div>
+        <Card>
+          <section>
+            <h2>
+              <Link to="/load"><MdArrowBack /></Link>
+              {title}
+            </h2>
+            <div>
+              <Card><Info title="Arquivos" content={details.files.length} /></Card>
+              <Card><Info title="Data de envio" content={details.sentAt} /></Card>
+              <Card><Info title="Usuário" content={details.user} /></Card>
+            </div>
+            <input onChange={handleChange} />
+            <div>
+              {fileItems}
+            </div>
+          </section>
+        </Card>
+        <section>
+          <Card>
+            <h3>Resumo</h3>
+            <div>
+              <Info title="Modelo de carga" content={details.model} />
+              <Info title="Nome da carga" content={details.name} />
+              <Info title="Data de chegada no Digesto" content={details.arrivedAtDigesto} />
+              <Info title="Data de chegada no cliente" content={details.arrivedAtClient} />
+              <Info title="Tipo" content={details?.type || "Não informado"} />
+            </div>
+        </Card>
+        </section>
+      </div>
+      <Button><IconBackwardTime /> Auditoria</Button>
+    </>
+  <MainLayout>;
+}
+```

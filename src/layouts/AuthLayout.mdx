@@ -1,0 +1,18 @@
+```typescript
+import { SidebarMenu } from "../components/SidebarMenu";
+import { Header } from "../components/Header";
+
+type Props = {
+  children: JSX.Element;
+};
+
+export function AuthLayout({ children }: Props) {
+  return (
+    <div>
+      <Header />
+      <SidebarMenu menuOptions={[]} />
+      <main>{children}</main>
+    </div>
+  );
+}
+```

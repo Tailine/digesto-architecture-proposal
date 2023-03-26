@@ -1,0 +1,25 @@
+```typescript
+import { makeLoadService } from "../factories/makeLoadService";
+
+const loadService = makeLoadService();
+
+export function useLoadDetails(id: string): ApiResponse<LoadDetails> {
+  const [status, setStatus] = useState<Status>("loading");
+  const [data, setData] = useState<LoadDetails>();
+
+  useEffect(() => {
+    async function getLoadDetails() {
+      const result = await loadService.getDetails(id);
+      setStatus(result.status);
+      if (result.status === "success") {
+        setData(result?.data);
+      }
+    }
+  }, []);
+
+  return {
+    status,
+    data,
+  };
+}
+```

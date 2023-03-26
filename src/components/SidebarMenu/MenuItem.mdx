@@ -1,0 +1,18 @@
+```typescript
+type Props = {
+  label: string;
+  path: string;
+  icon?: JSX.Element;
+  children?: JSX.Element;
+};
+
+export function MenuItem({ path, label, icon, children }: Props) {
+  return (
+    <li>
+      {icon}
+      <Link to={path}>{name}</Link>
+      {children && <ul>{children}</ul>}
+    </li>
+  );
+}
+```

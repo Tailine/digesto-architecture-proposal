@@ -1,0 +1,16 @@
+```typescript
+type Props = {
+  title: string
+  children: JSX.Element
+}
+
+export function MainLayout({ title, children }:Props) {
+  return(
+    <>
+      <h1>{title}</h1>
+      {children}
+    <>
+  )
+}
+
+```

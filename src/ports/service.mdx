@@ -1,0 +1,10 @@
+```typescript
+export interface Service {
+  get<DataType>(path: string): Promise<DataType>;
+  post<DataType, ResponseType>(
+    path: string,
+    data: DataType
+  ): Promise<ResponseType>;
+  // ...outros métodos
+}
+```

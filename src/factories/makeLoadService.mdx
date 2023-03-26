@@ -1,0 +1,8 @@
+```typescript
+import { ApiAdapter } from "../adapters/api-adapter";
+
+export function makeLoadService() {
+  const service = new ApiAdapter();
+  return new LoadService(service);
+}
+```

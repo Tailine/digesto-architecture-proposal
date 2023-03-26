@@ -1,0 +1,43 @@
+```typescript
+import { MenuItem } from './MenuItem'
+
+type NestedOption = {
+  label: string
+  path: string
+}
+
+export type MenuOptions = {
+  label: string
+  path: string
+  icon: JSX.Element
+  options?: NestedOption[]
+}
+
+type Props = {
+  menuOptions: MenuOptions[]
+}
+
+export function SidebarMenu({ menuOptions }: Props) {
+
+  const menuItems = menuOptions.map((option) => {
+    if(option.options?.length) {
+      <MenuItem key={option.path} path={option.path} icon={option.icon} label={option.label}>
+        <>
+          {option.options.map(op => <MenuItem key={op.path} label={op.label} path={op.path} />)}
+        </>
+      </MenuItem>
+    }
+    return <MenuItem key={option.path} path={option.path} icon={option.icon} label={option.label}>
+  })
+
+  return (
+    <aside>
+      <nav>
+        <ul>
+          {menuItems}
+        <ul>
+      </nav>
+    </aside>
+  );
+}
+```

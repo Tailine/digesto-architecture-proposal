@@ -1,0 +1,30 @@
+```typescript
+import { Logo } from "../Logo";
+import { MdArrowBack, MdOutlineHelpOutline } from 'react-icons/md'
+
+export function Header() {
+  return (
+    <header>
+      <div>
+        <Logo />
+        <a>
+          <MdArrowBack />
+        </a>
+      </div>
+      <div>
+        <div>
+          <MdOutlineHelpOutline />
+          <p>Ajuda<p>
+        </div>
+        <Menu>
+          <MenuButton>usuário@jusbrasil.com.br <MdOutlineExpandMore /></MenuButton>
+          <MenuList>
+            <MenuItem>Configurações</MenuItem>
+            <MenuItem>Sair</MenuItem>
+          </MenuList>
+        </Menu>
+      </div>
+    </header>
+  );
+}
+```

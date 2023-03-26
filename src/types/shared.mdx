@@ -1,0 +1,10 @@
+```typescript
+export type Status = "error" | "loading" | "success";
+
+export interface ApiResponse<T> {
+  status: Status;
+  errorMessage?: string;
+  successMessage?: string;
+  data: T;
+}
+```
