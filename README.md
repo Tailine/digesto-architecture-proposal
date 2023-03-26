@@ -7,23 +7,19 @@ Esse projeto consite em uma proposta de arquitetura de uma aplicação frontend 
 Aplicação composta pelas seguintes pastas:
 
 - `src`
+  - `adapters`: implementa as interfaces definidas na pasta `ports`
   - `components`: componentes mais genéricos
   - `config`: arquivos de configuração
+  - `e2e`: testes end-to-end
+  - `factories`: criação dos serviços
   - `hooks`
   - `layouts`: estrutura de páginas
   - `pages`: além da página pode conter componentes específicos desta página
   - `ports`: interfaces de comunicação com o meio externo
   - `services`: chamadas para api
-  - `adapters`: implementa as interfaces definidas na pasta `ports`
   - `types`: tipos de dados
   - `utils`: funções que podem ser reaproveitadas
-  - `e2e`: testes end-to-end
 
 ## Componentização
 
 ![screenshot da página destacando os componentes](digesto.png)
-
-<span style="color:red">#</span> AuthLayout <br>
-<span style="color:purple">#</span> Header <br>
-<span style="color:green">#</span> SidebarMenu <br>
-<span style="color:blue">#</span> MainLayout <br>
